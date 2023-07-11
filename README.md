@@ -7,8 +7,11 @@ Llama 7B
 Running the python notebook Evaluate_LLM.ipynb will generate files codet5_2b_samples.jsonl and llama_7b_hf_samples.jsonl which contains the code snippets for prompts mentioned in HumanEval dataset. These code snippets will be evaluated using evalplus framework. 
 
 #### Evaluate CodeT5 with pass@k = 1: 
-(Below command is ran on Macbook Air M1, hence --platform linux/amd64 option is included)\
-docker run --platform linux/amd64 -v $(pwd):/app ganler/evalplus:latest --dataset humaneval --samples codet5_2b_samples.jsonl 
+(Below command is ran on Macbook Air M1, hence --platform linux/amd64 option is included)
+```
+docker run --platform linux/amd64 -v $(pwd):/app ganler/evalplus:latest --dataset humaneval --samples codet5_2b_samples.jsonl
+```
+It will give the following output: 
 ```
 Computing expected output...
 Expected outputs computed in 215.67s
@@ -24,7 +27,10 @@ This means that out of 164 problems, it is correctly able to give solution for 3
 A file with codet5_2b_samples_eval_results.jsonl will also be generated with the results 
 
 #### Evaluate Llama with pass@k = 1:
+```
 docker run --platform linux/amd64 -v $(pwd):/app ganler/evalplus:latest --dataset humaneval --samples llama_7b_hf_samples.jsonl
+```
+It will give the following output: 
 ```
 Downloading HumanEvalPlus dataset...
 Computing expected output...
